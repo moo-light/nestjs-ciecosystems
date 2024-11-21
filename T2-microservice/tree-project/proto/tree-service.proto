@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package treeservice;
+
+service TreeService {
+  rpc CreateTree(CreateTreeRequest) returns (TreeResponse);
+  rpc GetTree(GetTreeRequest) returns (TreeResponse);
+  rpc UpdateTree(UpdateTreeRequest) returns (TreeResponse);
+  rpc DeleteTree(DeleteTreeRequest) returns (Empty);
+}
+
+message CreateTreeRequest {
+  string species = 1;
+  int32 age = 2;
+}
+
+message GetTreeRequest {
+  int32 id = 1;
+}
+
+message UpdateTreeRequest {
+  int32 id = 1;
+  string species = 2;
+  int32 age = 3;
+}
+
+message DeleteTreeRequest {
+  int32 id = 1;
+}
+message TreeResponse {
+  int32 id = 1;
+  string species = 2;
+  int32 age = 3;
+}
+
+message Empty {}
