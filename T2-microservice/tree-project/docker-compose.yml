@@ -1,16 +1,16 @@
 
 services:
-  db:
-    container_name: db
-    image: postgres:12
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: postgres
-    ports:
-      - '5432:5432'
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  # db:
+  #   container_name: db
+  #   image: postgres:12
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_DB: postgres
+  #   ports:
+  #     - '5432:5432'
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
 
   api-service:
     build:
@@ -19,7 +19,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - tree-service
 
   tree-service:
     build:
@@ -35,7 +35,3 @@ services:
       SECRET_KEY: ${SECRET_KEY}
     ports:
       - "5000:5000"
-    depends_on:
-      - db
-volumes:
-  pgdata: {}
