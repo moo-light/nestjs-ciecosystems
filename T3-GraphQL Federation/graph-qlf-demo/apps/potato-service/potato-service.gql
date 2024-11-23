@@ -1,0 +1,22 @@
+"""Potato object type"""
+type Potato {
+  id: ID!
+  name: String!
+  color: String!
+  length: Int!
+  weight: Float!
+  price: Float!
+}
+
+type Query {
+  an_cai_nay_tot_cho_suc_khoe(args: PotatoRequestDTO): [Potato!]!
+}
+
+"""Potato input type"""
+input PotatoRequestDTO {
+  name: String
+  color: String
+  length: Int
+  weight: Float
+  price: Float
+}

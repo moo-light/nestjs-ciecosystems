@@ -1,0 +1,35 @@
+"""Carrot object type"""
+type Carrot {
+  id: ID!
+  name: String!
+  color: String!
+  length: Float!
+  weight: Float!
+  sweetness: Int!
+  crunchiness: Int!
+  farm: String!
+  harvestDate: DateTime!
+  price: Float!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  tre_trau_Da_Den(args: CarrotRequestDTO): [Carrot!]!
+}
+
+"""Carrot input type"""
+input CarrotRequestDTO {
+  name: String
+  color: String
+  length: Float
+  weight: Float
+  sweetness: Int
+  crunchiness: Int
+  farm: String
+  harvestDate: DateTime
+  price: Float
+}

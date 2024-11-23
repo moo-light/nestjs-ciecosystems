@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/a-gpl-gateway/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/a-gpl-gateway/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/a-gpl-gateway",
+  "projects": {
+    "carrot-service": {
+      "type": "application",
+      "root": "apps/carrot-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/carrot-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/carrot-service/tsconfig.app.json"
+      }
+    },
+    "potato-service": {
+      "type": "application",
+      "root": "apps/potato-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/potato-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/potato-service/tsconfig.app.json"
+      }
+    },
+    "a-gpl-gateway": {
+      "type": "application",
+      "root": "apps/a-gpl-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/a-gpl-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/a-gpl-gateway/tsconfig.app.json"
+      }
+    },
+    "a_gpl_gateway": {
+      "type": "application",
+      "root": "apps/a_gpl_gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/a_gpl_gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/a_gpl_gateway/tsconfig.app.json"
+      }
+    }
+  }
+}
