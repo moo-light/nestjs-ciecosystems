@@ -1,0 +1,16 @@
+type FruitResponseDto {
+  id: Float!
+  name: String!
+  color: String!
+  weight: Float!
+}
+
+type Query {
+  cuong_dep_trai(args: FruitRequestDto!): FruitResponseDto!
+}
+
+input FruitRequestDto {
+  name: String!
+  color: String!
+  weight: Float!
+}

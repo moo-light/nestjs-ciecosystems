@@ -20,7 +20,7 @@ const generateSchema = async () => {
 }
 
 async function bootstrap() {
-  const app = await NestFactory.create(CarrotServiceModule);
+const app = await NestFactory.create(CarrotServiceModule);
   await app.listen(3001);
 }
 generateSchema().then(() => bootstrap());

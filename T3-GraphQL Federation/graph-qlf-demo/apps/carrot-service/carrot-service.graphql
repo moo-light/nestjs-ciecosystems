@@ -22,7 +22,7 @@ A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date
 scalar DateTime
 
 type Query {
-  tre_trau_Da_Den(args: CarrotRequestDTO): [Carrot!]!
+  tre_trau_Da_Den(filter: CarrotRequestDTO): [Carrot!]!
 }
 
 """Carrot input type"""

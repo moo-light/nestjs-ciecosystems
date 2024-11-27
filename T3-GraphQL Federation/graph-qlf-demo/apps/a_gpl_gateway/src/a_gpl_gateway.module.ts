@@ -1,10 +1,27 @@
+import { ApolloFederationDriver, ApolloFederationDriverConfig, ApolloGatewayDriver, ApolloGatewayDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
-import { AGplGatewayController } from './a_gpl_gateway.controller';
-import { AGplGatewayService } from './a_gpl_gateway.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { IntrospectAndCompose } from '@apollo/gateway';
+import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
 
 @Module({
-  imports: [],
-  controllers: [AGplGatewayController],
-  providers: [AGplGatewayService],
+  imports: [
+    GraphQLModule.forRoot<ApolloGatewayDriverConfig>({
+      driver: ApolloGatewayDriver,
+      server: {
+        plugins: [ApolloServerPluginLandingPageLocalDefault()],
+        playground: false,
+        introspection: true,
+      },
+      gateway: {
+        supergraphSdl: new IntrospectAndCompose({
+          subgraphs: [
+            { name: 'Carrot', url: 'http://localhost:3001/graphql' },
+            { name: 'Potato', url: 'http://localhost:3005/graphql' },
+          ],
+        }),
+      },
+    }),
+  ],
 })
-export class AGplGatewayModule {}
+export class AGplGatewayModule { }

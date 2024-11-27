@@ -12,10 +12,9 @@ export class PotatoResolver {
     {
       name: "an_cai_nay_tot_cho_suc_khoe"
     })
-  getPotatoes(@Args('args', {
+  getPotatoes(@Args('filter', {
     nullable: true,
-
-  }) args?: PotatoRequestDTO): Potato[] {
-    return this.PotatoService.getPotatoes();
+  }) filt?: PotatoRequestDTO): Potato[] {
+    return this.PotatoService.getPotatoes(filt);
   }
 }

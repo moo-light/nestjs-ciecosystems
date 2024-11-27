@@ -9,7 +9,7 @@ type Potato {
 }
 
 type Query {
-  an_cai_nay_tot_cho_suc_khoe(args: PotatoRequestDTO): [Potato!]!
+  an_cai_nay_tot_cho_suc_khoe(filter: PotatoRequestDTO): [Potato!]!
 }
 
 """Potato input type"""
